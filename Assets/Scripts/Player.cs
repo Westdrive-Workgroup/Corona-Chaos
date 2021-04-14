@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     private GameObject _barrierPrefab;
     
     [SerializeField] 
-    private GameObject _Shield;
+    private GameObject _ShieldPrefab;
     
     [SerializeField] 
     private SpawnManager _spawnManager;
@@ -47,31 +47,25 @@ public class Player : MonoBehaviour
     private PowerUpType _powerUpType;
     
     private bool _bdEasterEgg = false; 
-    
-    
-    public void TurnOnEasterEgg()
-    {
-        _bdEasterEgg = true;
-        _uiManager.EasterEgg();
-    }
+   
 
-    void OnEnabled()
-    {
-        
-    }
-
-    void Awake()
+    void OnEnable()
     {
         if (_vaccinePrefab == null)
-        {
             Debug.LogError("Vaccince Prefab is missing!");
-            int i = 5;
-#if UNITY_EDITOR            
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
-#endif
-        }
+        if(_uvLightPrefab == null)
+            Debug.LogError("UV light Prefab is missing!");
+        if (_barrierPrefab == null)
+            Debug.LogError("Barrier Prefab is missing!");
+        if(_ShieldPrefab == null)
+            Debug.LogError("Shield Prefab is missing!");
+        if (_spawnManager == null)
+            Debug.LogError("Spawn Manager is missing!");
+        if(_uiManager == null)
+            Debug.LogError("UI manager is missing!");
+        if(_vaccineParent == null)
+            Debug.LogError("_vaccine parenting transform is missing!");
+        
     }
     void Start()
     {
@@ -82,44 +76,25 @@ public class Player : MonoBehaviour
    
     void Update()
     {
-        if (!_bdEasterEgg && Input.GetKeyDown(KeyCode.P))
-        {
-            TurnOnEasterEgg();
-        }
 
-        if (_bdEasterEgg && (_uiManager.GetScore() >  15))
-        {
-            RunEasterEgg();
-        }
+        
         PlayerMovement();
         Vaccinate();
         DefensiveOn();
     }
-
-    private void RunEasterEgg()
-    {
-        if(_spawnManager != null)
-            _spawnManager.onPlayerDeath();
-        _uiManager.ShowEasterEgg();
-        Destroy(this.gameObject);
-    }
+    
 
     // Damaging the plyar
     public void Damage()
     {
-        if(_Shield.activeSelf)
-            _Shield.SetActive(false);
+        if(_ShieldPrefab.activeSelf)
+            _ShieldPrefab.SetActive(false);
         _lives -= 1;  
         _uiManager.UpdateHealth(_lives);
         //if health is 0 destroy the player
         if (_lives == 0)
         {
-            if(_spawnManager != null)
-                _spawnManager.onPlayerDeath();
-            else
-            {
-                Debug.LogError("Spawn Manager not assigned, you tired idiot!");
-            }
+            _spawnManager.onPlayerDeath();
             _uiManager.ShowGameOver();
             Destroy(this.gameObject);
         }
@@ -141,8 +116,8 @@ public class Player : MonoBehaviour
                     _isPowerUpOn = false;
                     break;
                 case PowerUpType.Shield:
-                    if(!_Shield.activeSelf)
-                        _Shield.SetActive(true);
+                    if(!_ShieldPrefab.activeSelf)
+                        _ShieldPrefab.SetActive(true);
                     _lives++;
                     _uiManager.UpdateHealth(_lives);
                     _isPowerUpOn = false;

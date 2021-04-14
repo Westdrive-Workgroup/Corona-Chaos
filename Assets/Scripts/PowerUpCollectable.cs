@@ -5,7 +5,7 @@ using UnityEngine;
 public enum PowerUpType
 {
     UVLight = 0,Barrier = 1,
-    Shield
+    Shield = 2
 }
 public class PowerUpCollectable : MonoBehaviour
 {

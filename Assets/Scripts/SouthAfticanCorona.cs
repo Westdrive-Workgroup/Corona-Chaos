@@ -12,9 +12,10 @@ public class SouthAfticanCorona : MonoBehaviour
 
     private float _canInfect = -1f;
 
-    void Start()
+    void OnEnable()
     {
-        // please make it random rate xD 
+        if(_evilVaccinePrefab == null)
+            Debug.Log("Evil Vaccine Prefab is missing!");
     }
     void Update()
     {

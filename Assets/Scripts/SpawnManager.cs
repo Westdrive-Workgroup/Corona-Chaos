@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.Events;
 
 public class SpawnManager : MonoBehaviour
@@ -19,6 +20,20 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private float _powerUPSpawnRate = 30f;
     private bool _spawningON = true;
+
+    void OnEnable()
+    {
+        if(_UVLightPrefab == null)
+            Debug.LogError("UV Light Prefab is missing!");
+        foreach (GameObject virusPrefab in _virusPrefabs)
+        {
+            if (virusPrefab == null)
+            {
+                Debug.LogError("Virus Prefab is missing!");
+            }
+        }
+        
+    }
     void Start()
     {
         StartCoroutine(SpawnSystem());

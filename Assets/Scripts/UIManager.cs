@@ -12,12 +12,16 @@ public class UIManager : MonoBehaviour
     private Text _healthText;
     [SerializeField] 
     private Text _gameOverText;
-    [SerializeField] 
-    private Text _versionText;
-
     
-    
-
+    void OnEnbale()
+    {
+        if (_scoreText == null)
+            Debug.LogError("Score Text is missing!");
+        if (_healthText == null)
+            Debug.LogError("Health Text is missing!");
+        if (_gameOverText == null)
+            Debug.LogError("Game over text is missing!");
+    }
     public int GetScore()
     {
         return _score;
@@ -44,26 +48,9 @@ public class UIManager : MonoBehaviour
         _scoreText.text = "Score: " + _score;
     }
 
-    public void EasterEgg()
-    {
-        _versionText.text = "Eastern Egg mode";
-        _versionText.color = Color.green;
-    }
+    
 
-    public void ShowEasterEgg()
-    {
-        StartCoroutine(ColorfulText());
-    }
+    
 
-    IEnumerator ColorfulText()
-    {
-        _gameOverText.color = Color.green;
-        _gameOverText.text = "Happy Birthday Peter!";
-        _gameOverText.gameObject.SetActive(true);
-        while (true)
-        {
-            Color32.LerpUnclamped(Color.green, Color.yellow, Time.deltaTime);
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
+    
 }
