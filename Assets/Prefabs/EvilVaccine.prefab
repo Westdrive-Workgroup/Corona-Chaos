@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5690844475846287544
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5362714334976473265, guid: ccafd83e95080460c9f05160b28f2c78,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796996560518885908, guid: ccafd83e95080460c9f05160b28f2c78,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fbdd1ec44b2cd4c16a7dac5cd00535ed, type: 2}
+    - target: {fileID: 6599967725038356650, guid: ccafd83e95080460c9f05160b28f2c78,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599967725038356650, guid: ccafd83e95080460c9f05160b28f2c78,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599967725038356650, guid: ccafd83e95080460c9f05160b28f2c78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599967725038356650, guid: ccafd83e95080460c9f05160b28f2c78,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599967725038356650, guid: ccafd83e95080460c9f05160b28f2c78,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599967725038356650, guid: ccafd83e95080460c9f05160b28f2c78,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599967725038356650, guid: ccafd83e95080460c9f05160b28f2c78,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599967725038356650, guid: ccafd83e95080460c9f05160b28f2c78,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599967725038356650, guid: ccafd83e95080460c9f05160b28f2c78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599967725038356650, guid: ccafd83e95080460c9f05160b28f2c78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599967725038356650, guid: ccafd83e95080460c9f05160b28f2c78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887360238782443616, guid: ccafd83e95080460c9f05160b28f2c78,
+        type: 3}
+      propertyPath: m_Name
+      value: EvilVaccine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887360238782443616, guid: ccafd83e95080460c9f05160b28f2c78,
+        type: 3}
+      propertyPath: m_TagString
+      value: Virus
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ccafd83e95080460c9f05160b28f2c78, type: 3}
