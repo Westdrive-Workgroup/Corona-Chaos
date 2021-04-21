@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Resources;
 using UnityEditor;
 using UnityEngine;
 
@@ -22,12 +23,7 @@ public class Player : MonoBehaviour
     [SerializeField] 
     private GameObject _ShieldPrefab;
     
-    [SerializeField] 
-    private SpawnManager _spawnManager;
-
-    //we keep this for Max
-    [SerializeField] 
-    private UIManager _uiManager;
+    
     
     [Header("Vaccination parameter")]
     [SerializeField] 
@@ -59,17 +55,15 @@ public class Player : MonoBehaviour
             Debug.LogError("Barrier Prefab is missing!");
         if(_ShieldPrefab == null)
             Debug.LogError("Shield Prefab is missing!");
-        if (_spawnManager == null)
-            Debug.LogError("Spawn Manager is missing!");
-        if(_uiManager == null)
-            Debug.LogError("UI manager is missing!");
+        
         if(_vaccineParent == null)
             Debug.LogError("_vaccine parenting transform is missing!");
+        
         
     }
     void Start()
     {
-        _uiManager.UpdateHealth(_lives);
+        GameManager.Instance.UpdateHealth(_lives);
         _isPowerUpOn = false;
         transform.position = new Vector3(0f, 0f, 0f);
     }
@@ -90,19 +84,20 @@ public class Player : MonoBehaviour
         if(_ShieldPrefab.activeSelf)
             _ShieldPrefab.SetActive(false);
         _lives -= 1;  
-        _uiManager.UpdateHealth(_lives);
+        GameManager.Instance.UpdateHealth(_lives);
         //if health is 0 destroy the player
         if (_lives == 0)
         {
-            _spawnManager.onPlayerDeath();
-            _uiManager.ShowGameOver();
+            
+            GameManager.Instance.GameOver();
             Destroy(this.gameObject);
         }
     }
 
     public void RelayScore(int score)
     {
-        _uiManager.AddScore(score);
+        GameManager.Instance.AddScore(score);
+        
     }
     void DefensiveOn()
     {
@@ -119,7 +114,7 @@ public class Player : MonoBehaviour
                     if(!_ShieldPrefab.activeSelf)
                         _ShieldPrefab.SetActive(true);
                     _lives++;
-                    _uiManager.UpdateHealth(_lives);
+                    GameManager.Instance.UpdateHealth(_lives);
                     _isPowerUpOn = false;
                     break;
                 default:
