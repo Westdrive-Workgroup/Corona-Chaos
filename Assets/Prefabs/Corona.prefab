@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6040593704018388160}
   - component: {fileID: 1772557342553475769}
   - component: {fileID: 8746984291457449358}
+  - component: {fileID: 3925286425514999484}
   m_Layer: 0
   m_Name: Corona
   m_TagString: Virus
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 4
+  _horizontalSpeed: 10
   _rotationSpeed: 360
 --- !u!135 &1772557342553475769
 SphereCollider:
@@ -77,6 +79,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &3925286425514999484
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2697215899549051932}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c9c88db1312934fb69d9fe434167d281, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6078254537366568001
 GameObject:
   m_ObjectHideFlags: 0

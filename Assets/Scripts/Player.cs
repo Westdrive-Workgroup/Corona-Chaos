@@ -22,11 +22,14 @@ public class Player : MonoBehaviour
     
     [SerializeField] 
     private GameObject _ShieldPrefab;
-    
-    
+
+    [Header("Player bounds")] [SerializeField]
+    [Tooltip("this is a tooltip")]
+    private Rect _playerBounds;
     
     [Header("Vaccination parameter")]
     [SerializeField] 
+    [Range(0,2f)]
     private float _vaccinationRate = 0.4f;
     [SerializeField]
     private Transform _vaccineParent;
@@ -158,40 +161,19 @@ public class Player : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         
-        transform.GetChild(0).Rotate(new Vector3(0f,horizontalInput * _speed * 2f * Time.deltaTime,0f),Space.World);
+        transform.Rotate(new Vector3(0f,horizontalInput * _speed * 2f * Time.deltaTime,0f),Space.World);
         Vector3 playerTranslate = new Vector3(
             1f * horizontalInput * _speed * Time.deltaTime,
             1f * verticalInput * _speed * Time.deltaTime,
-            0f);
+            0f); 
         transform.Translate(playerTranslate);
-
         
-        if (transform.position.y >0f)   
-        {
-            // keep player y position at 0
-            transform.position = new Vector3(transform.position.x,
-                0f,
-                0f);
-        }
-        else if (transform.position.y < -4.5f)
-        {
-            transform.position = new Vector3(transform.position.x,
-                -4.5f,
-                0f);
-        }
+        float playerX = Mathf.Clamp(transform.position.x, -1 * (_playerBounds.width/2), (_playerBounds.width/2));
+        float playerY = Mathf.Clamp(transform.position.y, -1 * (_playerBounds.height/2), (_playerBounds.height/2));
         
-        if (transform.position.x >11.2f)   
-        {
-            transform.position = new Vector3(-11.2f,
-                transform.position.y,
-                0f);
-        }
-        else if (transform.position.x < -11.2f)
-        {
-            transform.position = new Vector3(11.2f,
-                transform.position.y,
-                0f);
-        }
+        transform.position = new Vector3(playerX,playerY,0f);
+        
+        
     }
 
     public void ActivatePowerUp(PowerUpType type)

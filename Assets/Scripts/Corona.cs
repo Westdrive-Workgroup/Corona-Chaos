@@ -14,10 +14,10 @@ public class Corona : MonoBehaviour
     void Update()
     {
         
-        transform.GetChild(0).Rotate(new Vector3(Random.Range(-_rotationSpeed, _rotationSpeed) * Time.deltaTime,
-                Random.Range(-_rotationSpeed, _rotationSpeed) * Time.deltaTime,
-                Random.Range(-_rotationSpeed, _rotationSpeed) * Time.deltaTime),
-            Space.Self);
+        // transform.GetChild(0).Rotate(new Vector3(Random.Range(-_rotationSpeed, _rotationSpeed) * Time.deltaTime,
+        //         Random.Range(-_rotationSpeed, _rotationSpeed) * Time.deltaTime,
+        //         Random.Range(-_rotationSpeed, _rotationSpeed) * Time.deltaTime),
+        //     Space.Self);
         // transform.rotation = Quaternion.Slerp(transform.rotation,target, _rotationSpeed * Time.deltaTime);
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
         if(name.Contains("B117"))
