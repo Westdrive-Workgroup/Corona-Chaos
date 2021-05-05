@@ -15,20 +15,20 @@ public class Vaccine : MonoBehaviour
     // making sure vaccenes stay in the camera frustrum 
     void Update()
     {
-        transform.Rotate(new Vector3(0f, _rotationSpeed * Time.deltaTime, 0f), Space.Self);
+        
         if (CompareTag("Vaccine"))
         {
-            transform.Translate((Vector3.up) * _vacinneSpeed * Time.deltaTime);
+            transform.Translate((Vector3.forward) * _vacinneSpeed * Time.deltaTime);
             
-            if (transform.position.y > 7f)
+            if (transform.position.z > 20f)
             {
                 Destroy(this.gameObject);
             }
         }
         else
         {
-            transform.Translate((Vector3.down) * _vacinneSpeed * Time.deltaTime);
-            if (transform.position.y < -7f)
+            transform.Translate((Vector3.back) * _vacinneSpeed * Time.deltaTime);
+            if (transform.position.y < 0f)
             {
                 Destroy(this.gameObject);
             }

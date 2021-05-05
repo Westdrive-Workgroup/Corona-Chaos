@@ -67,7 +67,7 @@ public class SpawnManager : MonoBehaviour
         while (_spawningON)
         {
             
-            Instantiate(_virusPrefabs[SelectVirusIndex()], new Vector3(Random.Range(-8f,8f), 7f, 0f), Quaternion.identity,this.transform);        
+            Instantiate(_virusPrefabs[SelectVirusIndex()], new Vector3(Random.Range(-8f,8f), Random.Range(-4f,4f), 20f), Quaternion.identity,this.transform);        
             yield return new WaitForSeconds(_delay);
         }
         Destroy(this.gameObject);
@@ -78,7 +78,7 @@ public class SpawnManager : MonoBehaviour
         Debug.Log("powerups spawn enabled");
         while (true)
         {
-            Instantiate(_UVLightPrefab,new Vector3(Random.Range(-8f, 8f), 7f, 0f), Quaternion.identity, this.transform);
+            Instantiate(_UVLightPrefab,new Vector3(Random.Range(-8f, 8f), Random.Range(-4f,4f), 20f), Quaternion.identity, this.transform);
             Debug.Log("spawning");
             yield return new WaitForSeconds(_powerUPSpawnRate);
         }
