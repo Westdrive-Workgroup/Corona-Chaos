@@ -13,7 +13,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float _chanceModifier = 0.01f;
     [SerializeField] private List<GameObject> _virusPrefabs;
     [SerializeField] private GameObject _UVLightPrefab;
-    
+    [SerializeField] private Rect _boundaries;
+    [Range(50f, 0)] [SerializeField] private float _initalDepth = 20f;
     [SerializeField] 
     private float _delay = 2f;
 
@@ -67,7 +68,7 @@ public class SpawnManager : MonoBehaviour
         while (_spawningON)
         {
             
-            Instantiate(_virusPrefabs[SelectVirusIndex()], new Vector3(Random.Range(-8f,8f), Random.Range(-4f,4f), 20f), Quaternion.identity,this.transform);        
+            Instantiate(_virusPrefabs[SelectVirusIndex()], new Vector3(Random.Range(-1 * _boundaries.width/2, _boundaries.width/2), Random.Range(-1 * _boundaries.height/2, _boundaries.height/2), _initalDepth), Quaternion.identity,this.transform);        
             yield return new WaitForSeconds(_delay);
         }
         Destroy(this.gameObject);
@@ -78,7 +79,7 @@ public class SpawnManager : MonoBehaviour
         Debug.Log("powerups spawn enabled");
         while (true)
         {
-            Instantiate(_UVLightPrefab,new Vector3(Random.Range(-8f, 8f), Random.Range(-4f,4f), 20f), Quaternion.identity, this.transform);
+            Instantiate(_UVLightPrefab,new Vector3(Random.Range(-1 * _boundaries.width/2, _boundaries.width/2), Random.Range(-1 * _boundaries.height/2, _boundaries.height/2), _initalDepth), Quaternion.identity, this.transform);
             Debug.Log("spawning");
             yield return new WaitForSeconds(_powerUPSpawnRate);
         }

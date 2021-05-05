@@ -7,19 +7,17 @@ public class Corona : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _horizontalSpeed = 10f;
-    [SerializeField]
-    private float _rotationSpeed = 750f;
-
+    [SerializeField] private Rect _boundaries;
+    [Range(50f, 0)] [SerializeField] private float _initalDepth = 20f;
+    [Range(0f, -10f)] [SerializeField] private float _endDepth = -2f;
  
     void Update()
     {
         
         transform.Translate(-1f * Vector3.forward * _speed * Time.deltaTime);
-        // if(name.Contains("B117"))
-        //     transform.Translate(Vector3.right * Random.Range(-1f,1f) * _horizontalSpeed * Time.deltaTime);
-        if (transform.position.z < 0f)
+        if (transform.position.z < _endDepth)
         {
-            transform.position = new Vector3(Random.Range(-8f, 8f), Random.Range(-4f, 4f), 20f);
+            transform.position = new Vector3(Random.Range(-1 * _boundaries.width/2, _boundaries.width/2), Random.Range(-1 * _boundaries.height/2, _boundaries.height/2), _initalDepth);
             
         }
     }

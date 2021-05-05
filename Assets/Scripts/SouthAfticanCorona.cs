@@ -11,7 +11,9 @@ public class SouthAfticanCorona : MonoBehaviour
     private float _incidentRate = 2f;
 
     private float _canInfect = -1f;
-
+    [SerializeField] private Rect _boundaries;
+    [Range(50f, 0)] [SerializeField] private float _initalDepth = 20f;
+    [Range(0f, -10f)] [SerializeField] private float _endDepth = -2f;
     void OnEnable()
     {
         if(_evilVaccinePrefab == null)
@@ -19,7 +21,12 @@ public class SouthAfticanCorona : MonoBehaviour
     }
     void Update()
     {
-        transform.Translate(Vector3.down * _speed * Time.deltaTime);
+        transform.Translate(-1f * Vector3.forward * _speed * Time.deltaTime);
+        if (transform.position.z < _endDepth)
+        {
+            transform.position = new Vector3(Random.Range(-1 * _boundaries.width/2, _boundaries.width/2), Random.Range(-1 * _boundaries.height/2, _boundaries.height/2), _initalDepth);
+            
+        }
         Infect();
     }
 
@@ -28,7 +35,7 @@ public class SouthAfticanCorona : MonoBehaviour
         if (Time.time > _canInfect)
         {
             _canInfect = Time.time + _incidentRate;
-            Instantiate(_evilVaccinePrefab,transform.position + new Vector3(0f, -0.7f, 0f),Quaternion.identity);
+            Instantiate(_evilVaccinePrefab,transform.position + new Vector3(0f, 0f, -0.7f),Quaternion.identity);
 
         }
 

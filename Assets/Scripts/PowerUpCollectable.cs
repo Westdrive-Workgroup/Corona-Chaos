@@ -14,7 +14,7 @@ public class PowerUpCollectable : MonoBehaviour
 
     [SerializeField] private PowerUpType _type = PowerUpType.Barrier;
     [SerializeField] private bool _spawnRandomType = true;
-
+    [Range(0f, -10f)] [SerializeField] private float _endDepth = -2f;
     void Start()
     {
         if (_spawnRandomType == true)
@@ -29,8 +29,8 @@ public class PowerUpCollectable : MonoBehaviour
     }
     void Update()
     {
-        transform.Translate(Vector3.down * _speed * Time.deltaTime);
-        if (transform.position.y < -5f)
+        transform.Translate(-1f * Vector3.forward * _speed * Time.deltaTime);
+        if (transform.position.z < _endDepth)
         {
             Destroy(this.gameObject);
         }

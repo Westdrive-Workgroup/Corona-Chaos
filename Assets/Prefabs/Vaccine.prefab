@@ -112,6 +112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vacinneSpeed: 7
   _rotationSpeed: 720
+  _initalDepth: 20
+  _endDepth: -5.53
 --- !u!136 &5362714334976473265
 CapsuleCollider:
   m_ObjectHideFlags: 0

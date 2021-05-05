@@ -49,7 +49,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 4
   _horizontalSpeed: 10
-  _rotationSpeed: 360
+  _boundaries:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 20
+    height: 8
+  _initalDepth: 20
+  _endDepth: -2
 --- !u!135 &1772557342553475769
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -16,6 +16,14 @@ MonoBehaviour:
   _evilVaccinePrefab: {fileID: 2561555050319384792, guid: bbebb99fc6abc4f5e843acaac9bce782,
     type: 3}
   _incidentRate: 2
+  _boundaries:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 20
+    height: 8
+  _initalDepth: 20
+  _endDepth: -5
 --- !u!1001 &2717194754556684157
 PrefabInstance:
   m_ObjectHideFlags: 0

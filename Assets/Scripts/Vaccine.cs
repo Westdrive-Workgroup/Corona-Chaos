@@ -11,6 +11,8 @@ public class Vaccine : MonoBehaviour
     [SerializeField]
     private float _rotationSpeed = 30f;
 
+    [Range(50f, 0)] [SerializeField] private float _initalDepth = 20f;
+    [Range(0f, -10f)] [SerializeField] private float _endDepth = -2f;
     
     // making sure vaccenes stay in the camera frustrum 
     void Update()
@@ -20,7 +22,7 @@ public class Vaccine : MonoBehaviour
         {
             transform.Translate((Vector3.forward) * _vacinneSpeed * Time.deltaTime);
             
-            if (transform.position.z > 20f)
+            if (transform.position.z > _initalDepth)
             {
                 Destroy(this.gameObject);
             }
@@ -28,7 +30,7 @@ public class Vaccine : MonoBehaviour
         else
         {
             transform.Translate((Vector3.back) * _vacinneSpeed * Time.deltaTime);
-            if (transform.position.y < 0f)
+            if (transform.position.z < _endDepth)
             {
                 Destroy(this.gameObject);
             }
