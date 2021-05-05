@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7887360238782443616
+--- !u!1 &7072083061311772875
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6599967725038356650}
-  - component: {fileID: 4756416714875108893}
-  - component: {fileID: 5796996560518885908}
-  - component: {fileID: 1434723523}
-  - component: {fileID: 1235587550800113264}
-  - component: {fileID: 5362714334976473265}
+  - component: {fileID: 5950515646755062120}
+  - component: {fileID: 5864348151314435765}
+  - component: {fileID: 6910288544630143556}
+  - component: {fileID: 7875679586216920737}
+  - component: {fileID: 646783056938774228}
+  - component: {fileID: 1409875169904336461}
   m_Layer: 0
-  m_Name: Vaccine
-  m_TagString: Vaccine
+  m_Name: Cube
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6599967725038356650
+--- !u!4 &5950515646755062120
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7887360238782443616}
+  m_GameObject: {fileID: 7072083061311772875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: 0, y: 1, z: -5.57}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4756416714875108893
+--- !u!33 &5864348151314435765
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7887360238782443616}
-  m_Mesh: {fileID: 4300006, guid: 4568c0d01b7fb471ca349f46e97057d9, type: 3}
---- !u!23 &5796996560518885908
+  m_GameObject: {fileID: 7072083061311772875}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &6910288544630143556
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7887360238782443616}
+  m_GameObject: {fileID: 7072083061311772875}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2980ea85afb6c44edb84669c56d857c9, type: 2}
+  - {fileID: 2100000, guid: 96a9cc0452c18487f921324dcc87ee4e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,49 +82,66 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &1434723523
-Rigidbody:
+--- !u!65 &7875679586216920737
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7887360238782443616}
+  m_GameObject: {fileID: 7072083061311772875}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &1235587550800113264
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &646783056938774228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7887360238782443616}
+  m_GameObject: {fileID: 7072083061311772875}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9552221c552764eada6d5028033ec55b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5233c5ef8eb1d4148805a44198d53cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vacinneSpeed: 7
-  _rotationSpeed: 720
+  _speed: 30
+  _horizontalSpeed: 10
+  _boundaries:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
   _initalDepth: 20
-  _endDepth: -5
---- !u!136 &5362714334976473265
-CapsuleCollider:
+  _endDepth: -2
+  _blend: 0
+--- !u!114 &1409875169904336461
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7887360238782443616}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_GameObject: {fileID: 7072083061311772875}
   m_Enabled: 1
-  m_Radius: 0.18
-  m_Height: 0.54
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.0000005066395, z: 0.000002503395}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e40761963ce4cc6955413b16bd53cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _vaccinePrefab: {fileID: 0}
+  _uvLightPrefab: {fileID: 0}
+  _barrierPrefab: {fileID: 0}
+  _ShieldPrefab: {fileID: 0}
+  _playerBounds:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  _vaccinationRate: 0.4
+  _vaccineParent: {fileID: 0}
+  _powerupTimeout: 5
+  _lives: 3

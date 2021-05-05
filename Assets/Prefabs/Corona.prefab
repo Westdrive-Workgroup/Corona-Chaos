@@ -56,7 +56,7 @@ MonoBehaviour:
     width: 20
     height: 8
   _initalDepth: 20
-  _endDepth: -2
+  _endDepth: -5
 --- !u!135 &1772557342553475769
 SphereCollider:
   m_ObjectHideFlags: 0

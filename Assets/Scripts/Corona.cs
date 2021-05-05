@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
+using UnityEngine.Animations;
 
 public class Corona : MonoBehaviour
 {
@@ -10,7 +10,25 @@ public class Corona : MonoBehaviour
     [SerializeField] private Rect _boundaries;
     [Range(50f, 0)] [SerializeField] private float _initalDepth = 20f;
     [Range(0f, -10f)] [SerializeField] private float _endDepth = -2f;
- 
+    [Range(0f,1f)]
+    [SerializeField] private float _blend = 0f;
+    private Animator _animator;
+    
+    void Awake()
+    {
+        if (name.Contains("B117"))
+        {
+            _blend = 1f;
+        }
+        if (GetComponent<Animator>() != null)
+        {
+            _animator = GetComponent<Animator>();
+            _animator.SetBool("ShouldAnimate", true);
+            _animator.SetFloat("Blend", _blend);
+        }
+        
+    }
+
     void Update()
     {
         
