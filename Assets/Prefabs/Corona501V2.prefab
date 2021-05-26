@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &2628145412419587352
+--- !u!114 &-6917645182244628219
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,21 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 61649249041894241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b988a27e70c304aafa81b4d864990031, type: 3}
+  m_Script: {fileID: 11500000, guid: 5233c5ef8eb1d4148805a44198d53cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
-  _evilVaccinePrefab: {fileID: 2561555050319384792, guid: bbebb99fc6abc4f5e843acaac9bce782,
-    type: 3}
-  _incidentRate: 2
-  _boundaries:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 20
-    height: 8
-  _initalDepth: 20
-  _endDepth: -5
+  _virusData: {fileID: 11400000, guid: 4d2db0ddad134462d9dd27a208570ef4, type: 2}
 --- !u!1001 &2717194754556684157
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -67,6 +67,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         GameManager.Instance.UpdateHealth(_lives);
+        GameManager.Instance.onDamageTaken += Damage;
         _isPowerUpOn = false;
         transform.position = new Vector3(0f, 0f, 0f);
     }

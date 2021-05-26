@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     private List<GameObject> pool;
 
+
+    public UnityAction onDamageTaken;
     void Awake()
     {
         pool = new List<GameObject>();
